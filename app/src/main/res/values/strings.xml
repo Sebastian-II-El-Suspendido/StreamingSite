@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">StreamingSite</string>
+    <string name="login">Iniciar sesión</string>
+    <string name="signIn">¿Todavía sin Nitflex? Regístrate ya.</string>
+    <string name="username">Usuario</string>
+    <string name="password">Contraseña</string>
 </resources>
