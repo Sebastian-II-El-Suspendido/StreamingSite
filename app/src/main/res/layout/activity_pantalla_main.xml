@@ -4,6 +4,597 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/theme"
     tools:context=".PantallaMain">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="310dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="100dp"
+                    android:layout_height="52dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/theme"
+                    android:fontFamily="@font/montserrat"
+                    android:text="@string/pelis"
+                    android:textColor="@color/white"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    app:strokeColor="@color/white"
+                    app:strokeWidth="2dp" />
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="90dp"
+                    android:layout_height="52dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/theme"
+                    android:fontFamily="@font/montserrat"
+                    android:text="@string/series"
+                    android:textColor="@color/white"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    app:strokeColor="@color/white"
+                    app:strokeWidth="2dp" />
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/borde"
+                    android:fontFamily="@font/montserrat"
+                    android:popupBackground="@drawable/borde"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/marg"
+                android:layout_width="300dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:padding="1dp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/volume_24_out"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/roundedCorner"
+
+                    app:strokeColor="@color/white"
+                    app:strokeWidth="2dp"
+
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"
+                    android:background="@drawable/gradient_black"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"
+                    android:background="@drawable/gradient_black_ver"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/baseline_play_arrow_24"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <VideoView
+                    android:id="@+id/videoView"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginEnd="40dp"
+                    android:layout_marginBottom="40dp"
+                    android:fontFamily="@font/montserrat"
+                    android:gravity="center"
+                    android:text="@string/title"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="15dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <TextView
+                android:id="@+id/textView4"
+                style="@style/MyTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="0dp"
+                android:text="@string/apar1"
+                android:textSize="18sp" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/desc">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp"
+                        android:contentDescription="@string/desc"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="0dp"
+                        app:srcCompat="@drawable/volume_0" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imageView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/desc"
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="0dp"
+                        app:srcCompat="@drawable/volume_1" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp"
+                        android:contentDescription="@string/desc"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="0dp"
+                        app:srcCompat="@drawable/volume_2" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imageView7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp"
+                        android:contentDescription="@string/desc"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="0dp"
+                        app:srcCompat="@drawable/volume_3" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imageView8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp"
+                        android:contentDescription="@string/desc"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="0dp"
+                        app:srcCompat="@drawable/volume_4" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imageView9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp"
+                        android:contentDescription="@string/desc"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="0dp"
+                        app:srcCompat="@drawable/volume_5" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <TextView
+                android:id="@+id/textView5"
+                style="@style/MyTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="0dp"
+                android:text="@string/apar2"
+                android:textSize="18sp" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/desc">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imageView10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/desc"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="0dp"
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp"
+                        app:srcCompat="@drawable/volume_6" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imageView11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/desc"
+                        android:paddingStart="10dp"
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp"
+                        android:paddingEnd="0dp"
+                        app:srcCompat="@drawable/volume_7" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imageView12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/desc"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="0dp"
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp"
+                        app:srcCompat="@drawable/volume_8" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imageView13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/desc"
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="0dp"
+                        app:srcCompat="@drawable/volume_9" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imageView14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/desc"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="0dp"
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp"
+                        app:srcCompat="@drawable/volume_10" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imageView15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/desc"
+                        android:paddingStart="10dp"
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp"
+                        android:paddingEnd="0dp"
+                        app:srcCompat="@drawable/volume_11" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <TextView
+                android:id="@+id/textView6"
+                style="@style/MyTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="0dp"
+                android:text="@string/apar3"
+                android:textSize="18sp" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/desc">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imageView16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/desc"
+                        android:paddingStart="10dp"
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp"
+                        android:paddingEnd="0dp"
+                        app:srcCompat="@drawable/volume_12" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imageView17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/desc"
+                        android:paddingStart="10dp"
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp"
+                        android:paddingEnd="0dp"
+                        app:srcCompat="@drawable/volume_13" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imageView18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/desc"
+                        android:paddingStart="10dp"
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp"
+                        android:paddingEnd="0dp"
+                        app:srcCompat="@drawable/volume_14" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imageView19"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/desc"
+                        android:paddingStart="10dp"
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp"
+                        android:paddingEnd="0dp"
+                        app:srcCompat="@drawable/volume_15" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imageView20"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/desc"
+                        android:paddingStart="10dp"
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp"
+                        android:paddingEnd="0dp"
+                        app:srcCompat="@drawable/volume_16" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imageView21"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/desc"
+                        android:paddingStart="10dp"
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp"
+                        android:paddingEnd="0dp"
+                        app:srcCompat="@drawable/volume_17" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <TextView
+                android:id="@+id/textView7"
+                style="@style/MyTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="0dp"
+                android:text="@string/apar4"
+                android:textSize="18sp" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/desc">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imageView22"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/desc"
+                        android:paddingStart="10dp"
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp"
+                        android:paddingEnd="0dp"
+                        app:srcCompat="@drawable/volume_18" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imageView23"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/desc"
+                        android:paddingStart="10dp"
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp"
+                        android:paddingEnd="0dp"
+                        app:srcCompat="@drawable/volume_19" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imageView24"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/desc"
+                        android:paddingStart="10dp"
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp"
+                        android:paddingEnd="0dp"
+                        app:srcCompat="@drawable/volume_20" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imageView25"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/desc"
+                        android:paddingStart="10dp"
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp"
+                        android:paddingEnd="0dp"
+                        app:srcCompat="@drawable/volume_21" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imageView26"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/desc"
+                        android:paddingStart="10dp"
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp"
+                        android:paddingEnd="0dp"
+                        app:srcCompat="@drawable/volume_22" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imageView27"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/desc"
+                        android:paddingStart="10dp"
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp"
+                        android:paddingEnd="0dp"
+                        app:srcCompat="@drawable/volume_23" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:contentDescription="@string/desc"
+        android:src="@drawable/baseline_person_24"
+        android:layout_marginBottom="15dp"
+        android:layout_marginStart="310dp"
+        android:background="@drawable/rounded_button"
+         android:padding="10dp"
+         android:scaleType="centerInside"
+         android:clickable="true"
+         android:focusable="true"
+         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="DuplicateSpeakableTextCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,52 @@
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
-
+    <style name="Blanco" parent="Widget.AppCompat.SearchView">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorHint">@color/white</item>
+        <item name="colorControlActivated">@color/white</item>
+    </style>
+    <style name="ToolbarWithNoPadding" parent="Widget.AppCompat.Toolbar">
+        <item name="contentInsetStart">0dp</item>
+        <item name="contentInsetLeft">0dp</item>
+    </style>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Personaliza el color de la flecha hacia atrás -->
+        <item name="colorControlNormal">@color/white</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:editTextColor">@color/white</item>
+    </style>
     <style name="Theme.StreamingSite" parent="Base.Theme.StreamingSite" />
+    <style name="TextoSpinner"  parent="Widget.AppCompat.TextView.SpinnerItem">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
+        <item name="strokeColor">@color/white</item>
+        <item name="strokeWidth">2dp</item>
+
+    </style>
+    <style name="roundedCorner">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">5%</item>
+    </style>
+
+    <style name="Circulito">
+        <item name="cornerSize">55%</item>
+    </style>
+
+
+    <style name="MyTextViewStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:text">@string/title</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+
 </resources>

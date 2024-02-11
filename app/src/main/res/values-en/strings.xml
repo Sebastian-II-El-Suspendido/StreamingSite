@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">StreamingSite</string>
+    <string name="login">Log In</string>
+    <string name="signIn">Still without Nitflex? Reigster Now</string>
+    <string name="username">User</string>
+    <string name="password">Password</string>
+    <string name="confirmpass">Confirm Password</string>
+    <string name="Registrar">Register</string>
+    <string name="forgot">Forgot Password?</string>
+    <string name="ayuda">Need help?</string>
+    <string name="desc">.</string>
+    <string name="series">Series</string>
+    <string name="pelis">Movies</string>
+    <string name="cate">Genres</string>
+    <string name="apar1">Explore</string>
+    <string name="apar2">Latests releases</string>
+    <string name="apar3">Originals</string>
+    <string name="apar4">Recomendations</string>
+    <string name="user">User Name</string>
+    <string name="changepass">Change Password</string>
+    <string name="mail">User Mail</string>
+    <string name="idioma">Change language</string>
+    <string name="sesion">Log out</string>
+    <string name="edit">Edit profile</string>
+</resources>

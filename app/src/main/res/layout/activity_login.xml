@@ -10,9 +10,12 @@
         android:id="@+id/backgroundImageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:contentDescription="@string/desc"
         android:scaleType="center"
-        android:src="@drawable/fondologin" />
-
+        android:src="@drawable/fondologin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:layout_width="match_parent"
@@ -21,8 +24,8 @@
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/linearLayoutCompat"
-        android:layout_width="409dp"
-        android:layout_height="729dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginStart="1dp"
         android:layout_marginTop="1dp"
         android:layout_marginEnd="1dp"
@@ -35,63 +38,71 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
-
-
         <ImageView
             android:id="@+id/imageLogo"
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
-            android:src="@drawable/logo2" />
+            android:src="@drawable/logo2"
+            android:contentDescription="@string/desc"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="65dp"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="70dp"
-            android:layout_marginRight="40dp">
+            android:layout_marginRight="40dp"
+            android:background="#CCFFFFFF"
+            android:gravity="center"
+            app:boxBackgroundMode="none"
+            app:hintTextColor="#1d1b20">
 
             <EditText
                 android:id="@+id/editTextEmail"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#CCFFFFFF"
+                android:layout_height="50dp"
+                android:layout_marginBottom="15dp"
                 android:drawableStart="@drawable/baseline_person_24"
                 android:drawablePadding="10dp"
                 android:fontFamily="@font/montserrat"
                 android:hint="@string/username"
                 android:importantForAutofill="no"
+                android:paddingBottom="12dp"
                 android:inputType="textEmailAddress"
-                android:textColor="@color/white"
-                android:textStyle="bold" />
+                android:textSize="18sp"
+                android:textColor="@color/material_on_background_emphasis_high_type"
+               />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="65dp"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="40dp"
+            android:background="#CCFFFFFF"
+            android:gravity="center"
+            app:boxBackgroundMode="none"
+            app:hintTextColor="#1d1b20"
             app:passwordToggleEnabled="true">
 
             <EditText
                 android:id="@+id/editTextPassword"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#CCFFFFFF"
+                android:layout_height="50dp"
+                android:layout_marginBottom="15dp"
                 android:drawableStart="@drawable/baseline_lock_24"
                 android:drawablePadding="10dp"
                 android:fontFamily="@font/montserrat"
                 android:hint="@string/password"
                 android:importantForAutofill="no"
                 android:inputType="textPassword"
-                android:textColor="@color/white"
-                android:textColorHighlight="@color/material_on_background_emphasis_high_type"
-                android:textColorHint="@color/material_on_background_emphasis_high_type"
-                android:textStyle="bold" />
+                android:paddingBottom="10dp"
+                android:textSize="18sp"
+                android:textColor="@color/material_on_background_emphasis_high_type"
+               />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -108,7 +119,6 @@
             android:textSize="15sp"
             android:visibility="gone" />
 
-        <!--Text View Warning-->
         <TextView
             android:id="@+id/textViewResult"
             android:layout_width="match_parent"
@@ -119,7 +129,6 @@
             android:textColor="@color/black"
             android:visibility="gone" />
 
-        <!--BUTON LOGIN-->
         <Button
             android:id="@+id/btnLogin"
             style="?attr/materialButtonOutlinedStyle"
@@ -139,12 +148,11 @@
             app:iconTint="@color/white"
             app:strokeColor="@color/white" />
 
-        <!--BUTON SIGN IN-->
         <TextView
             android:id="@+id/btnSignIn"
             style="?attr/materialButtonOutlinedStyle"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_marginStart="40dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="40dp"
@@ -152,7 +160,24 @@
             android:fontFamily="@font/montserrat"
             android:text="@string/signIn"
             android:textColor="@color/white"
-            android:textSize="16sp"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:cornerRadius="15dp" />
+
+
+
+        <TextView
+            android:id="@+id/btnForgot"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:elevation="2dp"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/forgot"
+            android:textColor="@color/white"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:cornerRadius="15dp" />
 

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">StreamingSite</string>
     <string name="login">Iniciar sesión</string>
@@ -12,24 +13,14 @@
     <string name="series">Series</string>
     <string name="pelis">Peliculas</string>
     <string name="cate">Categorías</string>
-    <string name="title" translatable="false">Título Genérico de Pelicula</string>
     <string name="apar1">Explorar</string>
     <string name="apar2">Últimas novedades</string>
     <string name="apar3">Originales</string>
     <string name="apar4">Recomendaciones</string>
     <string name="user">Nombre Usuario</string>
     <string name="changepass">Cambiar contraseña</string>
-    <string name="sesion">Cerrar sesión</string>
-    <string-array name="Cat">
-        <item>Categorías</item>
-        <item>Acción</item>
-        <item>Aventuras</item>
-        <item>Ciencia Ficción</item>
-        <item>Comedia</item>
-        <item>Fantasía</item>
-        <item>Romance</item>
-    </string-array>
     <string name="mail">Correo Usuario</string>
     <string name="idioma">Cambiar idioma</string>
-    <string name="edit">Editar perfil</string>
+    <string name="sesion">Cerrar sesión</string>
+    <string name="edit">Editar perfilEditar perfil</string>
 </resources>
