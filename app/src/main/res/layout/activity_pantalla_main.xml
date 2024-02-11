@@ -11,12 +11,15 @@
         android:id="@+id/toolbar"
         layout="@layout/toolbar"
         />
+    <include
+        layout="@layout/recycler" />
 
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="60dp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar">
@@ -113,6 +116,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <View
+                    android:id="@+id/play"
                     android:layout_width="match_parent"
                     android:layout_height="400dp"
                     android:background="@drawable/gradient_black_ver"
@@ -189,13 +193,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        app:shapeAppearanceOverlay="@style/roundedCorner"
-                        app:strokeColor="@color/white"
-                        app:strokeWidth="2dp"
                         android:contentDescription="@string/desc"
                         android:paddingStart="10dp"
                         android:paddingEnd="0dp"
-                        app:srcCompat="@drawable/volume_0" />
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:srcCompat="@drawable/volume_0"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp" />
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/imageView5"
@@ -203,64 +207,64 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:contentDescription="@string/desc"
-                        app:shapeAppearanceOverlay="@style/roundedCorner"
-                        app:strokeColor="@color/white"
-                        app:strokeWidth="2dp"
                         android:paddingStart="10dp"
                         android:paddingEnd="0dp"
-                        app:srcCompat="@drawable/volume_1" />
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:srcCompat="@drawable/volume_1"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp" />
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/imageView6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        app:shapeAppearanceOverlay="@style/roundedCorner"
-                        app:strokeColor="@color/white"
-                        app:strokeWidth="2dp"
                         android:contentDescription="@string/desc"
                         android:paddingStart="10dp"
                         android:paddingEnd="0dp"
-                        app:srcCompat="@drawable/volume_2" />
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:srcCompat="@drawable/volume_2"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp" />
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/imageView7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        app:shapeAppearanceOverlay="@style/roundedCorner"
-                        app:strokeColor="@color/white"
-                        app:strokeWidth="2dp"
                         android:contentDescription="@string/desc"
                         android:paddingStart="10dp"
                         android:paddingEnd="0dp"
-                        app:srcCompat="@drawable/volume_3" />
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:srcCompat="@drawable/volume_3"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp" />
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/imageView8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        app:shapeAppearanceOverlay="@style/roundedCorner"
-                        app:strokeColor="@color/white"
-                        app:strokeWidth="2dp"
                         android:contentDescription="@string/desc"
                         android:paddingStart="10dp"
                         android:paddingEnd="0dp"
-                        app:srcCompat="@drawable/volume_4" />
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:srcCompat="@drawable/volume_4"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp" />
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/imageView9"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        app:shapeAppearanceOverlay="@style/roundedCorner"
-                        app:strokeColor="@color/white"
-                        app:strokeWidth="2dp"
                         android:contentDescription="@string/desc"
                         android:paddingStart="10dp"
                         android:paddingEnd="0dp"
-                        app:srcCompat="@drawable/volume_5" />
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:srcCompat="@drawable/volume_5"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp" />
                 </LinearLayout>
             </HorizontalScrollView>
 
@@ -296,9 +300,9 @@
                         android:paddingStart="10dp"
                         android:paddingEnd="0dp"
                         app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:srcCompat="@drawable/volume_6"
                         app:strokeColor="@color/white"
-                        app:strokeWidth="2dp"
-                        app:srcCompat="@drawable/volume_6" />
+                        app:strokeWidth="2dp" />
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/imageView11"
@@ -307,11 +311,11 @@
                         android:layout_weight="1"
                         android:contentDescription="@string/desc"
                         android:paddingStart="10dp"
-                        app:shapeAppearanceOverlay="@style/roundedCorner"
-                        app:strokeColor="@color/white"
-                        app:strokeWidth="2dp"
                         android:paddingEnd="0dp"
-                        app:srcCompat="@drawable/volume_7" />
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:srcCompat="@drawable/volume_7"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp" />
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/imageView12"
@@ -322,9 +326,9 @@
                         android:paddingStart="10dp"
                         android:paddingEnd="0dp"
                         app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:srcCompat="@drawable/volume_8"
                         app:strokeColor="@color/white"
-                        app:strokeWidth="2dp"
-                        app:srcCompat="@drawable/volume_8" />
+                        app:strokeWidth="2dp" />
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/imageView13"
@@ -332,12 +336,12 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:contentDescription="@string/desc"
-                        app:shapeAppearanceOverlay="@style/roundedCorner"
-                        app:strokeColor="@color/white"
-                        app:strokeWidth="2dp"
                         android:paddingStart="10dp"
                         android:paddingEnd="0dp"
-                        app:srcCompat="@drawable/volume_9" />
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:srcCompat="@drawable/volume_9"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp" />
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/imageView14"
@@ -348,9 +352,9 @@
                         android:paddingStart="10dp"
                         android:paddingEnd="0dp"
                         app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:srcCompat="@drawable/volume_10"
                         app:strokeColor="@color/white"
-                        app:strokeWidth="2dp"
-                        app:srcCompat="@drawable/volume_10" />
+                        app:strokeWidth="2dp" />
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/imageView15"
@@ -359,11 +363,11 @@
                         android:layout_weight="1"
                         android:contentDescription="@string/desc"
                         android:paddingStart="10dp"
-                        app:shapeAppearanceOverlay="@style/roundedCorner"
-                        app:strokeColor="@color/white"
-                        app:strokeWidth="2dp"
                         android:paddingEnd="0dp"
-                        app:srcCompat="@drawable/volume_11" />
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:srcCompat="@drawable/volume_11"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp" />
                 </LinearLayout>
             </HorizontalScrollView>
 
@@ -397,11 +401,11 @@
                         android:layout_weight="1"
                         android:contentDescription="@string/desc"
                         android:paddingStart="10dp"
-                        app:shapeAppearanceOverlay="@style/roundedCorner"
-                        app:strokeColor="@color/white"
-                        app:strokeWidth="2dp"
                         android:paddingEnd="0dp"
-                        app:srcCompat="@drawable/volume_12" />
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:srcCompat="@drawable/volume_12"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp" />
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/imageView17"
@@ -410,11 +414,11 @@
                         android:layout_weight="1"
                         android:contentDescription="@string/desc"
                         android:paddingStart="10dp"
-                        app:shapeAppearanceOverlay="@style/roundedCorner"
-                        app:strokeColor="@color/white"
-                        app:strokeWidth="2dp"
                         android:paddingEnd="0dp"
-                        app:srcCompat="@drawable/volume_13" />
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:srcCompat="@drawable/volume_13"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp" />
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/imageView18"
@@ -423,11 +427,11 @@
                         android:layout_weight="1"
                         android:contentDescription="@string/desc"
                         android:paddingStart="10dp"
-                        app:shapeAppearanceOverlay="@style/roundedCorner"
-                        app:strokeColor="@color/white"
-                        app:strokeWidth="2dp"
                         android:paddingEnd="0dp"
-                        app:srcCompat="@drawable/volume_14" />
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:srcCompat="@drawable/volume_14"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp" />
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/imageView19"
@@ -436,11 +440,11 @@
                         android:layout_weight="1"
                         android:contentDescription="@string/desc"
                         android:paddingStart="10dp"
-                        app:shapeAppearanceOverlay="@style/roundedCorner"
-                        app:strokeColor="@color/white"
-                        app:strokeWidth="2dp"
                         android:paddingEnd="0dp"
-                        app:srcCompat="@drawable/volume_15" />
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:srcCompat="@drawable/volume_15"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp" />
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/imageView20"
@@ -449,11 +453,11 @@
                         android:layout_weight="1"
                         android:contentDescription="@string/desc"
                         android:paddingStart="10dp"
-                        app:shapeAppearanceOverlay="@style/roundedCorner"
-                        app:strokeColor="@color/white"
-                        app:strokeWidth="2dp"
                         android:paddingEnd="0dp"
-                        app:srcCompat="@drawable/volume_16" />
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:srcCompat="@drawable/volume_16"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp" />
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/imageView21"
@@ -462,11 +466,11 @@
                         android:layout_weight="1"
                         android:contentDescription="@string/desc"
                         android:paddingStart="10dp"
-                        app:shapeAppearanceOverlay="@style/roundedCorner"
-                        app:strokeColor="@color/white"
-                        app:strokeWidth="2dp"
                         android:paddingEnd="0dp"
-                        app:srcCompat="@drawable/volume_17" />
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:srcCompat="@drawable/volume_17"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp" />
                 </LinearLayout>
             </HorizontalScrollView>
 
@@ -500,11 +504,11 @@
                         android:layout_weight="1"
                         android:contentDescription="@string/desc"
                         android:paddingStart="10dp"
-                        app:shapeAppearanceOverlay="@style/roundedCorner"
-                        app:strokeColor="@color/white"
-                        app:strokeWidth="2dp"
                         android:paddingEnd="0dp"
-                        app:srcCompat="@drawable/volume_18" />
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:srcCompat="@drawable/volume_18"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp" />
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/imageView23"
@@ -513,11 +517,11 @@
                         android:layout_weight="1"
                         android:contentDescription="@string/desc"
                         android:paddingStart="10dp"
-                        app:shapeAppearanceOverlay="@style/roundedCorner"
-                        app:strokeColor="@color/white"
-                        app:strokeWidth="2dp"
                         android:paddingEnd="0dp"
-                        app:srcCompat="@drawable/volume_19" />
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:srcCompat="@drawable/volume_19"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp" />
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/imageView24"
@@ -526,11 +530,11 @@
                         android:layout_weight="1"
                         android:contentDescription="@string/desc"
                         android:paddingStart="10dp"
-                        app:shapeAppearanceOverlay="@style/roundedCorner"
-                        app:strokeColor="@color/white"
-                        app:strokeWidth="2dp"
                         android:paddingEnd="0dp"
-                        app:srcCompat="@drawable/volume_20" />
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:srcCompat="@drawable/volume_20"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp" />
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/imageView25"
@@ -539,11 +543,11 @@
                         android:layout_weight="1"
                         android:contentDescription="@string/desc"
                         android:paddingStart="10dp"
-                        app:shapeAppearanceOverlay="@style/roundedCorner"
-                        app:strokeColor="@color/white"
-                        app:strokeWidth="2dp"
                         android:paddingEnd="0dp"
-                        app:srcCompat="@drawable/volume_21" />
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:srcCompat="@drawable/volume_21"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp" />
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/imageView26"
@@ -552,11 +556,11 @@
                         android:layout_weight="1"
                         android:contentDescription="@string/desc"
                         android:paddingStart="10dp"
-                        app:shapeAppearanceOverlay="@style/roundedCorner"
-                        app:strokeColor="@color/white"
-                        app:strokeWidth="2dp"
                         android:paddingEnd="0dp"
-                        app:srcCompat="@drawable/volume_22" />
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:srcCompat="@drawable/volume_22"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp" />
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/imageView27"
@@ -565,11 +569,11 @@
                         android:layout_weight="1"
                         android:contentDescription="@string/desc"
                         android:paddingStart="10dp"
-                        app:shapeAppearanceOverlay="@style/roundedCorner"
-                        app:strokeColor="@color/white"
-                        app:strokeWidth="2dp"
                         android:paddingEnd="0dp"
-                        app:srcCompat="@drawable/volume_23" />
+                        app:shapeAppearanceOverlay="@style/roundedCorner"
+                        app:srcCompat="@drawable/volume_23"
+                        app:strokeColor="@color/white"
+                        app:strokeWidth="2dp" />
                 </LinearLayout>
             </HorizontalScrollView>
 
