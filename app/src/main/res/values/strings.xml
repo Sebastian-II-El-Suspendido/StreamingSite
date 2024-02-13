@@ -13,6 +13,7 @@
     <string name="pelis">Peliculas</string>
     <string name="cate">Categorías</string>
     <string name="title" translatable="false">Título Genérico de Pelicula</string>
+    <string name="apar0">Popular</string>
     <string name="apar1">Explorar</string>
     <string name="apar2">Últimas novedades</string>
     <string name="apar3">Originales</string>

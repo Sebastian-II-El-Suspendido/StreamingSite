@@ -1,11 +1,15 @@
 package com.example.streamingsite
 
-data class MovieDataClass(val id: Int,
-                          val title: String,
-                          val overview: String,
-                          val posterPath: String,
-                          val vote_average: Int,
-                          val genreIds: List<Int>,
-                          val release_date: String    ) {
+import com.google.gson.annotations.SerializedName
+
+data class MovieDataClass(
+    @SerializedName("id") val id: Int,
+    @SerializedName("title") val title: String,
+    @SerializedName("overview") val overview: String,
+    @SerializedName("poster_path") val posterPath: String,
+    @SerializedName("vote_average") val vote_average: Float,
+    @SerializedName("genre_ids") val genreIds: List<Int>,
+    @SerializedName("release_date") val release_date: String    ) {
 
 }
+

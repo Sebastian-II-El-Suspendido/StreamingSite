@@ -11,15 +11,13 @@
         android:id="@+id/toolbar"
         layout="@layout/toolbar"
         />
-    <include
-        layout="@layout/recycler" />
 
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="60dp"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar">
@@ -100,7 +98,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:shapeAppearanceOverlay="@style/roundedCorner"
-
                     app:strokeColor="@color/white"
                     app:strokeWidth="2dp"
 
@@ -164,7 +161,6 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-
             <TextView
                 android:id="@+id/textView4"
                 style="@style/MyTextViewStyle"
@@ -174,99 +170,13 @@
                 android:layout_marginBottom="10dp"
                 android:paddingStart="20dp"
                 android:paddingEnd="0dp"
-                android:text="@string/apar1"
+                android:text="@string/apar0"
                 android:textSize="18sp" />
 
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:contentDescription="@string/desc">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/imageView4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:contentDescription="@string/desc"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="0dp"
-                        app:shapeAppearanceOverlay="@style/roundedCorner"
-                        app:srcCompat="@drawable/volume_0"
-                        app:strokeColor="@color/white"
-                        app:strokeWidth="2dp" />
-
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/imageView5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:contentDescription="@string/desc"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="0dp"
-                        app:shapeAppearanceOverlay="@style/roundedCorner"
-                        app:srcCompat="@drawable/volume_1"
-                        app:strokeColor="@color/white"
-                        app:strokeWidth="2dp" />
-
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/imageView6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:contentDescription="@string/desc"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="0dp"
-                        app:shapeAppearanceOverlay="@style/roundedCorner"
-                        app:srcCompat="@drawable/volume_2"
-                        app:strokeColor="@color/white"
-                        app:strokeWidth="2dp" />
-
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/imageView7"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:contentDescription="@string/desc"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="0dp"
-                        app:shapeAppearanceOverlay="@style/roundedCorner"
-                        app:srcCompat="@drawable/volume_3"
-                        app:strokeColor="@color/white"
-                        app:strokeWidth="2dp" />
-
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/imageView8"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:contentDescription="@string/desc"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="0dp"
-                        app:shapeAppearanceOverlay="@style/roundedCorner"
-                        app:srcCompat="@drawable/volume_4"
-                        app:strokeColor="@color/white"
-                        app:strokeWidth="2dp" />
-
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/imageView9"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:contentDescription="@string/desc"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="0dp"
-                        app:shapeAppearanceOverlay="@style/roundedCorner"
-                        app:srcCompat="@drawable/volume_5"
-                        app:strokeColor="@color/white"
-                        app:strokeWidth="2dp" />
-                </LinearLayout>
-            </HorizontalScrollView>
+            <include
+                android:id="@+id/recycler1"
+                layout="@layout/recycler"
+                />
 
             <TextView
                 android:id="@+id/textView5"

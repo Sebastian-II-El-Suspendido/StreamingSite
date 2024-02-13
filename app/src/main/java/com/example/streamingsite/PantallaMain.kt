@@ -8,6 +8,7 @@ import android.view.Menu
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,15 +25,17 @@ class PantallaMain : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerAdapter
+    // val title = findViewById<TextView>(R.id.titleView)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPantallaMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         recyclerView = findViewById(R.id.recyclerView2)
-        Log.v("T","1")
-        initRecyclerView()
 
+
+        initRecyclerView()
+        Log.v("T","1")
         loadMovies()
         Log.v("T","2")
 
@@ -42,14 +45,21 @@ class PantallaMain : AppCompatActivity() {
 
 
     private fun loadMovies() {
-        RetrofitClient.tmDbApi.getListOfMovies().enqueue(object : Callback<MovieApiResponse> {
-            override fun onResponse(call: Call<MovieApiResponse>, response: Response<MovieApiResponse>) {
+        RetrofitClient.tmDbApi.getListMoviesPopular("1ea435c6f57a9f3833b110a6061d8f93").enqueue(object : Callback<MovieResponseList> {
+            override fun onResponse(call: Call<MovieResponseList>, response: Response<MovieResponseList>) {
                 if (response.isSuccessful) {
                     val movies = response.body()?.results
+                    Log.d("API Response", "Movies: $movies")
                     movies?.let {
                         // Actualizar el dataset del adapter y refrescar el RecyclerView
                         viewAdapter.MovieList = it
                         viewAdapter.notifyDataSetChanged()
+                        it.forEach { movie ->
+                            Log.d("Movie Title", movie.title)
+                        }
+
+
+
                     }
                 } else {
                     // Manejar error
@@ -59,20 +69,21 @@ class PantallaMain : AppCompatActivity() {
                 }
             }
 
-            override fun onFailure(call: Call<MovieApiResponse>, t: Throwable) {
-                // Manejar fallo en la llamada a la API
+            override fun onFailure(call: Call<MovieResponseList>, t: Throwable) {
 
+                // Manejar fallo en la llamada a la API
+                Log.e("API Error", "Call failed with error", t)
             }
         })
     }
 
 
 
-    private fun initRecyclerView(){
-        recyclerView.layoutManager= LinearLayoutManager(this)
+    private fun initRecyclerView() {
+        recyclerView.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL, false)
         val emptyList = listOf<MovieDataClass>()
-        recyclerView.adapter = RecyclerAdapter(emptyList)
-
+        viewAdapter = RecyclerAdapter(emptyList) // Inicializa viewAdapter aquí
+        recyclerView.adapter = viewAdapter // Asigna viewAdapter al RecyclerView
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -125,6 +136,7 @@ class PantallaMain : AppCompatActivity() {
             // Aplicar el adapter al spinner
             binding.spinner.adapter = adapter
         }
+
 
         // Establecer un listener para el spinner
         binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {

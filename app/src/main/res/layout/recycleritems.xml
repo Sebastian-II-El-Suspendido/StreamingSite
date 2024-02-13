@@ -1,85 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_marginStart="0dp"
+    android:paddingEnd="15dp"
     android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <HorizontalScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="251dp"
-        android:layout_marginBottom="409dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:contentDescription="@string/desc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/textView4"
-            style="@style/MyTextViewStyle"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:paddingStart="20dp"
-            android:paddingEnd="0dp"
-            android:text="@string/apar1"
-            android:textSize="18sp" />
+            android:orientation="horizontal">
 
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:contentDescription="@string/desc">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_weight="1">
 
-
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/posterView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1">
+                    android:layout_marginBottom="19dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/desc"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="0dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/titleView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/roundedCorner"
+                    app:srcCompat="@drawable/volume_0"
+                    app:strokeColor="@color/white"
+                    app:strokeWidth="3dp" />
 
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/imageView4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="19dp"
-                        android:layout_weight="1"
-                        android:contentDescription="@string/desc"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="0dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/textView14"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:shapeAppearanceOverlay="@style/roundedCorner"
-                        app:srcCompat="@drawable/volume_0"
-                        app:strokeColor="@color/white"
-                        app:strokeWidth="2dp" />
-
-                    <TextView
-                        android:id="@+id/textView14"
-                        style="@style/MyTextViewStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginEnd="65dp"
-                        android:text="TextView"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/titleView"
+                    style="@style/MyTextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center"
+                    android:text="TextView"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/posterView" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-            </LinearLayout>
-        </HorizontalScrollView>
-
-
-    </LinearLayout>
+        </LinearLayout>
+    </HorizontalScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
