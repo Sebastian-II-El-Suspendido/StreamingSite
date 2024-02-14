@@ -2,16 +2,17 @@ package com.example.streamingsite
 
 import com.google.gson.annotations.SerializedName
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface TMDbApiService {
     @GET("movie/popular")
-     fun getListMoviesPopular(
+     suspend fun getListMoviesPopular(
         @Query("api_key") apiKey: String,
         @Query("language") language: String = "en-US",
         @Query("page") page: Int = 1
-    ): Call<MovieResponseList>
+    ): Response<MovieResponseList>
 
     @GET("discover/movie")
     suspend fun getOriginals(

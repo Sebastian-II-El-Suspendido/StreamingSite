@@ -8,21 +8,21 @@ import android.view.Menu
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.TextView
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.Toolbar
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-
 import com.example.streamingsite.databinding.ActivityPantallaMainBinding
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 
+
 class PantallaMain : AppCompatActivity() {
     private lateinit var binding: ActivityPantallaMainBinding
-
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerAdapter
     // val title = findViewById<TextView>(R.id.titleView)
@@ -36,12 +36,49 @@ class PantallaMain : AppCompatActivity() {
 
         initRecyclerView()
         Log.v("T","1")
-        loadMovies()
+
+        llamarDatos()
         Log.v("T","2")
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
     }
+
+
+    private fun llamarDatos() {
+        lifecycleScope.launch {
+            Log.e("aviso","Launching Corrutine")
+            try {
+                // Retrofit manejará la llamada asíncrona en el fondo por ti.
+                val response = getRetrofit().create(TMDbApiService::class.java).getListMoviesPopular("1ea435c6f57a9f3833b110a6061d8f93")
+                // response es ahora del tipo Response<MovieResponseList>
+                if (response.isSuccessful) {
+                    // Aquí se accede al cuerpo de la respuesta si la llamada fue exitosa.
+                    val movies = response.body()?.results // Esta línea debería funcionar correctamente.
+                    Log.d("API Response", "Movies: $movies")
+                    movies?.let {
+                        // Actualizar el dataset del adapter y refrescar el RecyclerView
+                        viewAdapter.MovieList = it
+                        viewAdapter.notifyDataSetChanged()
+                        it.forEach { movie ->
+                            Log.d("Movie Title", movie.title)
+                        }
+                    }
+                } else {
+                    // Manejar la respuesta no exitosa
+                    val errorBody = response.errorBody()?.string()
+                    Log.e("API Error", "Código de error: ${response.code()}, Cuerpo del error: $errorBody")
+                }
+            } catch (e: Exception) {
+                // Manejar cualquier excepción que pueda ocurrir durante la llamada a la API.
+                Log.e("API Error", "Call failed with error", e)
+            }
+        }
+    }
+
+
+
+/*
 
 
     private fun loadMovies() {
@@ -57,8 +94,6 @@ class PantallaMain : AppCompatActivity() {
                         it.forEach { movie ->
                             Log.d("Movie Title", movie.title)
                         }
-
-
 
                     }
                 } else {
@@ -77,7 +112,7 @@ class PantallaMain : AppCompatActivity() {
         })
     }
 
-
+*/
 
     private fun initRecyclerView() {
         recyclerView.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL, false)
