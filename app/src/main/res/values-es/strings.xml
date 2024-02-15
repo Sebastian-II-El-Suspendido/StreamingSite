@@ -20,6 +20,11 @@
     <string name="apar4">Recomendaciones</string>
     <string name="user">Nombre Usuario</string>
     <string name="changepass">Cambiar contraseña</string>
+    <string name="sinopsis">Sinopsis:</string>
+    <string name="titulo">Título</string>
+    <string name="estreno">Estreno:</string>
+    <string name="puntaje">Puntuación:</string>
+    <string name="generos">"Géneros: "</string>
     <string name="mail">Correo Usuario</string>
     <string name="idioma">Cambiar idioma</string>
     <string name="sesion">Cerrar sesión</string>
