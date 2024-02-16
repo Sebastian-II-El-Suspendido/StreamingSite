@@ -17,9 +17,17 @@ android:layout_height="match_parent"
     android:theme="@style/AppTheme"
     >
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vertical"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9" />
+
     <ImageView
         android:id="@+id/iconologo"
         android:layout_width="60dp"
+        android:minWidth="60dp"
         android:layout_height="60dp"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"

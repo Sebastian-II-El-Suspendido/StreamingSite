@@ -24,7 +24,8 @@ import kotlinx.coroutines.*
 
 class PantallaMain : AppCompatActivity() {
     private lateinit var binding: ActivityPantallaMainBinding
-    private lateinit var recyclerView: RecyclerView
+    private lateinit var recyclerView1: RecyclerView
+    private lateinit var recyclerView2: RecyclerView
     private lateinit var viewAdapter: RecyclerAdapter
     // val title = findViewById<TextView>(R.id.titleView)
 
@@ -32,24 +33,24 @@ class PantallaMain : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityPantallaMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        recyclerView = findViewById(R.id.recyclerView2)
+        recyclerView1 = findViewById(R.id.recyclerView2)
+        recyclerView2 = findViewById(R.id.recycler1)
 
+        initRecyclerView(recyclerView1)
+        initRecyclerView(recyclerView2)
 
-        initRecyclerView()
         Log.v("T","1")
-
-        llamarDatos()
+        llamarDatosPopular()
         Log.v("T","2")
-
+        llamarDatosMejorPuntadas()
         fetchRandomHorrorMovie()
         Log.v("T","Pasada portada")
-
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
     }
 
 
-    private fun llamarDatos() {
+    private fun llamarDatosPopular() {
         lifecycleScope.launch {
             Log.e("aviso","Launching Corrutine")
             try {
@@ -62,11 +63,40 @@ class PantallaMain : AppCompatActivity() {
                     Log.d("API Response", "Movies: $movies")
                     movies?.let {
                         // Actualizar el dataset del adapter y refrescar el RecyclerView
-                        viewAdapter.MovieList = it
-                        viewAdapter.notifyDataSetChanged()
+                        viewAdapter.MovieList=it
+                        viewAdapter.submitList(it)
                         it.forEach { movie ->
                             Log.d("Movie Title", movie.title)
                         }
+                    }
+                } else {
+                    // Manejar la respuesta no exitosa
+                    val errorBody = response.errorBody()?.string()
+                    Log.e("API Error", "Código de error: ${response.code()}, Cuerpo del error: $errorBody")
+                }
+            } catch (e: Exception) {
+                // Manejar cualquier excepción que pueda ocurrir durante la llamada a la API.
+                Log.e("API Error", "Call failed with error", e)
+            }
+        }
+    }
+
+
+    private fun llamarDatosMejorPuntadas() {
+        lifecycleScope.launch {
+            Log.e("aviso","Launching Corrutine")
+            try {
+                // Retrofit manejará la llamada asíncrona en el fondo por ti.
+                val response = getRetrofit().create(TMDbApiService::class.java).getMoviesTopRated("1ea435c6f57a9f3833b110a6061d8f93")
+                // response es ahora del tipo Response<MovieResponseList>
+                if (response.isSuccessful) {
+                    // Aquí se accede al cuerpo de la respuesta si la llamada fue exitosa.
+                    val movies = response.body()?.results // Esta línea debería funcionar correctamente.
+                    Log.d("API Response", "Movies: $movies")
+                    movies?.let {
+                        // Actualizar el dataset del adapter y refrescar el RecyclerView
+                        viewAdapter.MovieList=it
+                        viewAdapter.submitList(it)
                     }
                 } else {
                     // Manejar la respuesta no exitosa
@@ -91,7 +121,6 @@ class PantallaMain : AppCompatActivity() {
     }
 
 */
-
     private  fun fetchRandomHorrorMovie() {
         lifecycleScope.launch {
             Log.e("aviso","Launching Corrutine")
@@ -106,8 +135,6 @@ class PantallaMain : AppCompatActivity() {
                     movies?.let {
                         // Actualizar el dataset del adapter y refrescar el RecyclerView
                         do {
-
-
                         it.forEach { movie ->
                             delay(5000)
                             val posterImageView: ImageView = findViewById(R.id.imageView2)
@@ -131,11 +158,9 @@ class PantallaMain : AppCompatActivity() {
                                     putExtra("MOVIE_POSTER", imageUrl)
                                     putExtra("MOVIE_GENRES", genreNames.joinToString(", "))
                                     putExtra("MOVIE_RELEASE_DATE", movie.release_date)
+
                                     putExtra("MOVIE_OVERVIEW", movie.overview)
                                     putExtra("MOVIE_RATE", movie.vote_average.toString())
-
-
-
                                     // Agrega cualquier otro dato que necesites
                                 }
                                   startActivity(intent)
@@ -196,12 +221,13 @@ class PantallaMain : AppCompatActivity() {
 
 */
 
-    private fun initRecyclerView() {
+    private fun initRecyclerView(recyclerView: RecyclerView) {
         recyclerView.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL, false)
         val emptyList = listOf<MovieDataClass>()
-        viewAdapter = RecyclerAdapter(emptyList, this) // Inicializa viewAdapter aquí
+        viewAdapter = RecyclerAdapter(this,emptyList) // Inicializa viewAdapter aquí
         recyclerView.adapter = viewAdapter // Asigna viewAdapter al RecyclerView
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
@@ -212,9 +238,6 @@ class PantallaMain : AppCompatActivity() {
             searchView.maxWidth = resources.getDimensionPixelSize(R.dimen.search_view_max_width)
         }
         setupSpinner()
-
-        binding.videoView.visibility= View.GONE
-
 
         binding.imageButton.setOnClickListener {
             val intent = Intent(this, Perfil::class.java)

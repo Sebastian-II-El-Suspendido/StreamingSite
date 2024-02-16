@@ -11,7 +11,7 @@
         android:title="@string/desc"
 
         />
-<!--
+
     <item
         android:id="@+id/icon_perfl_home"
         android:icon="@drawable/baseline_person_24"
@@ -19,7 +19,7 @@
         android:title="@string/desc"
 
         />
--->
+
 
 
 
