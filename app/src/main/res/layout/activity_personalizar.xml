@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/theme"
+    tools:context=".Perfil">
+  <include
+      android:id="@+id/toolbar"
+      layout="@layout/toolbar"
+      />
+  <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_marginTop="60dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="71dp"
+          android:gravity="center|start"
+          android:orientation="horizontal">
+
+      </LinearLayout>
+
+      <HorizontalScrollView
+          android:layout_width="match_parent"
+          android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp">
+
+          <ImageButton
+              android:id="@+id/imagePerfil0"
+              android:layout_width="150dp"
+              android:layout_height="150dp"
+              android:background="@drawable/rounded_button"
+              android:clickable="true"
+              android:contentDescription="@string/desc"
+              android:focusable="true"
+              android:paddingEnd="15dp"
+              android:padding="3dp"
+              tools:ignore="DuplicateSpeakableTextCheck" />
+
+          <ImageButton
+              android:id="@+id/imagePerfil1"
+              android:layout_width="150dp"
+              android:layout_height="150dp"
+              android:background="@drawable/rounded_button"
+              android:clickable="true"
+              android:contentDescription="@string/desc"
+              android:focusable="true"
+              android:layout_marginStart="15dp"
+              android:paddingEnd="15dp"
+              android:padding="3dp"
+              tools:ignore="DuplicateSpeakableTextCheck" />
+
+          <ImageButton
+              android:id="@+id/imagePerfil2"
+              android:layout_width="150dp"
+              android:layout_height="150dp"
+              android:background="@drawable/rounded_button"
+              android:clickable="true"
+              android:contentDescription="@string/desc"
+              android:focusable="true"
+              android:layout_marginStart="15dp"
+              android:paddingEnd="15dp"
+              android:padding="3dp"
+              tools:ignore="DuplicateSpeakableTextCheck" />
+
+          <ImageButton
+              android:id="@+id/imagePerfil3"
+              android:layout_width="150dp"
+              android:layout_height="150dp"
+              android:background="@drawable/rounded_button"
+              android:clickable="true"
+              android:contentDescription="@string/desc"
+              android:focusable="true"
+              android:layout_marginStart="15dp"
+              android:paddingEnd="15dp"
+              android:padding="3dp"
+              tools:ignore="DuplicateSpeakableTextCheck" />
+
+          <ImageButton
+              android:id="@+id/imagePerfil4"
+              android:layout_width="150dp"
+              android:layout_height="150dp"
+              android:background="@drawable/rounded_button"
+              android:clickable="true"
+              android:contentDescription="@string/desc"
+              android:focusable="true"
+              android:layout_marginStart="15dp"
+              android:paddingEnd="15dp"
+              android:padding="3dp"
+              tools:ignore="DuplicateSpeakableTextCheck" />
+
+          <ImageButton
+              android:id="@+id/imagePerfil5"
+              android:layout_width="150dp"
+              android:layout_height="150dp"
+              android:background="@drawable/rounded_button"
+              android:clickable="true"
+              android:contentDescription="@string/desc"
+              android:focusable="true"
+              android:layout_marginStart="15dp"
+              android:paddingEnd="15dp"
+              android:padding="3dp"
+              tools:ignore="DuplicateSpeakableTextCheck" />
+
+          <ImageButton
+              android:id="@+id/imagePerfil6"
+              android:layout_width="150dp"
+              android:layout_height="150dp"
+              android:background="@drawable/rounded_button"
+              android:clickable="true"
+              android:contentDescription="@string/desc"
+              android:focusable="true"
+              android:layout_marginStart="15dp"
+              android:paddingEnd="15dp"
+              android:padding="3dp"
+              tools:ignore="DuplicateSpeakableTextCheck" />
+
+          <ImageButton
+              android:id="@+id/imagePerfil7"
+              android:layout_width="150dp"
+              android:layout_height="150dp"
+              android:background="@drawable/rounded_button"
+              android:clickable="true"
+              android:contentDescription="@string/desc"
+              android:focusable="true"
+              android:layout_marginStart="15dp"
+              android:paddingEnd="15dp"
+              android:padding="3dp"
+              tools:ignore="DuplicateSpeakableTextCheck" />
+
+          <ImageButton
+              android:id="@+id/imagePerfil8"
+              android:layout_width="150dp"
+              android:layout_height="150dp"
+              android:background="@drawable/rounded_button"
+              android:clickable="true"
+              android:contentDescription="@string/desc"
+              android:focusable="true"
+              android:layout_marginStart="15dp"
+              android:paddingEnd="15dp"
+              android:padding="3dp"
+              tools:ignore="DuplicateSpeakableTextCheck" />
+
+          <ImageButton
+              android:id="@+id/imagePerfil9"
+              android:layout_width="150dp"
+              android:layout_height="150dp"
+              android:background="@drawable/rounded_button"
+              android:clickable="true"
+              android:contentDescription="@string/desc"
+              android:focusable="true"
+              android:layout_marginStart="15dp"
+              android:paddingEnd="15dp"
+              android:padding="3dp"
+              tools:ignore="DuplicateSpeakableTextCheck" />
+
+          <ImageButton
+              android:id="@+id/imagePerfil10"
+              android:layout_width="150dp"
+              android:layout_height="150dp"
+              android:background="@drawable/rounded_button"
+              android:clickable="true"
+              android:contentDescription="@string/desc"
+              android:focusable="true"
+              android:layout_marginStart="15dp"
+              android:paddingEnd="15dp"
+              android:padding="3dp"
+              tools:ignore="DuplicateSpeakableTextCheck" />
+
+          <ImageButton
+              android:id="@+id/imagePerfil11"
+              android:layout_width="150dp"
+              android:layout_height="150dp"
+              android:background="@drawable/rounded_button"
+              android:clickable="true"
+              android:contentDescription="@string/desc"
+              android:focusable="true"
+              android:layout_marginStart="15dp"
+              android:paddingEnd="15dp"
+              android:padding="3dp"
+              tools:ignore="DuplicateSpeakableTextCheck" />
+
+          <ImageButton
+              android:id="@+id/imagePerfil12"
+              android:layout_width="150dp"
+              android:layout_height="150dp"
+              android:background="@drawable/rounded_button"
+              android:clickable="true"
+              android:contentDescription="@string/desc"
+              android:focusable="true"
+              android:layout_marginStart="15dp"
+              android:paddingEnd="15dp"
+              android:padding="3dp"
+              tools:ignore="DuplicateSpeakableTextCheck" />
+
+          <ImageButton
+              android:id="@+id/imagePerfil13"
+              android:layout_width="150dp"
+              android:layout_height="150dp"
+              android:background="@drawable/rounded_button"
+              android:clickable="true"
+              android:contentDescription="@string/desc"
+              android:focusable="true"
+              android:layout_marginStart="15dp"
+              android:paddingEnd="15dp"
+              android:padding="3dp"
+              tools:ignore="DuplicateSpeakableTextCheck" />
+
+          <ImageButton
+              android:id="@+id/imagePerfil14"
+              android:layout_width="150dp"
+              android:layout_height="150dp"
+              android:background="@drawable/rounded_button"
+              android:clickable="true"
+              android:contentDescription="@string/desc"
+              android:focusable="true"
+              android:layout_marginStart="15dp"
+              android:paddingEnd="15dp"
+              android:padding="3dp"
+              tools:ignore="DuplicateSpeakableTextCheck" />
+
+          <ImageButton
+              android:id="@+id/imagePerfil15"
+              android:layout_width="150dp"
+              android:layout_height="150dp"
+              android:background="@drawable/rounded_button"
+              android:clickable="true"
+              android:contentDescription="@string/desc"
+              android:focusable="true"
+              android:layout_marginStart="15dp"
+              android:paddingEnd="15dp"
+              android:padding="3dp"
+              tools:ignore="DuplicateSpeakableTextCheck" />
+
+          <ImageButton
+              android:id="@+id/imagePerfil16"
+              android:layout_width="150dp"
+              android:layout_height="150dp"
+              android:background="@drawable/rounded_button"
+              android:clickable="true"
+              android:contentDescription="@string/desc"
+              android:focusable="true"
+              android:layout_marginStart="15dp"
+              android:paddingEnd="15dp"
+              android:padding="3dp"
+              tools:ignore="DuplicateSpeakableTextCheck" />
+
+          <ImageButton
+              android:id="@+id/imagePerfil17"
+              android:layout_width="150dp"
+              android:layout_height="150dp"
+              android:background="@drawable/rounded_button"
+              android:clickable="true"
+              android:contentDescription="@string/desc"
+              android:focusable="true"
+              android:layout_marginStart="15dp"
+              android:paddingEnd="15dp"
+              android:padding="3dp"
+              tools:ignore="DuplicateSpeakableTextCheck" />
+
+          <ImageButton
+              android:id="@+id/imagePerfil18"
+              android:layout_width="150dp"
+              android:layout_height="150dp"
+              android:background="@drawable/rounded_button"
+              android:clickable="true"
+              android:contentDescription="@string/desc"
+              android:focusable="true"
+              android:layout_marginStart="15dp"
+              android:paddingEnd="15dp"
+              android:padding="3dp"
+              tools:ignore="DuplicateSpeakableTextCheck" />
+
+          <ImageButton
+              android:id="@+id/imagePerfil19"
+              android:layout_width="150dp"
+              android:layout_height="150dp"
+              android:background="@drawable/rounded_button"
+              android:clickable="true"
+              android:contentDescription="@string/desc"
+              android:focusable="true"
+              android:layout_marginStart="15dp"
+              android:paddingEnd="15dp"
+              android:padding="3dp"
+              tools:ignore="DuplicateSpeakableTextCheck" />
+
+
+          <ImageButton
+              android:id="@+id/imagePerfil20"
+              android:layout_width="150dp"
+              android:layout_height="150dp"
+              android:background="@drawable/rounded_button"
+              android:clickable="true"
+              android:contentDescription="@string/desc"
+              android:focusable="true"
+              android:layout_marginStart="15dp"
+              android:paddingEnd="15dp"
+              android:padding="3dp"
+              tools:ignore="DuplicateSpeakableTextCheck" />
+
+
+          <ImageButton
+              android:id="@+id/imagePerfil21"
+              android:layout_width="150dp"
+              android:layout_height="150dp"
+              android:background="@drawable/rounded_button"
+              android:clickable="true"
+              android:contentDescription="@string/desc"
+              android:focusable="true"
+              android:layout_marginStart="15dp"
+              android:paddingEnd="15dp"
+              android:padding="3dp"
+              tools:ignore="DuplicateSpeakableTextCheck" />
+
+
+          <ImageButton
+              android:id="@+id/imagePerfil22"
+              android:layout_width="150dp"
+              android:layout_height="150dp"
+              android:background="@drawable/rounded_button"
+              android:clickable="true"
+              android:contentDescription="@string/desc"
+              android:focusable="true"
+              android:layout_marginStart="15dp"
+              android:paddingEnd="15dp"
+              android:padding="3dp"
+              tools:ignore="DuplicateSpeakableTextCheck" />
+
+
+          <ImageButton
+              android:id="@+id/imagePerfil23"
+              android:layout_width="150dp"
+              android:layout_height="150dp"
+              android:background="@drawable/rounded_button"
+              android:clickable="true"
+              android:contentDescription="@string/desc"
+              android:focusable="true"
+              android:layout_marginStart="15dp"
+              android:paddingEnd="15dp"
+              android:padding="3dp"
+              tools:ignore="DuplicateSpeakableTextCheck" />
+
+          <ImageButton
+              android:id="@+id/imagePerfil24"
+              android:layout_width="150dp"
+              android:layout_height="150dp"
+              android:background="@drawable/rounded_button"
+              android:clickable="true"
+              android:contentDescription="@string/desc"
+              android:focusable="true"
+              android:layout_marginStart="15dp"
+              android:paddingEnd="15dp"
+              android:padding="3dp"
+              tools:ignore="DuplicateSpeakableTextCheck" />
+
+        </LinearLayout>
+      </HorizontalScrollView>
+
+      <TextView
+          android:id="@+id/textView4"
+          style="@style/MyTextViewStyle"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="30dp"
+          android:layout_marginBottom="10dp"
+          android:gravity="center"
+          android:text="@string/user" />
+
+      <com.google.android.material.textfield.TextInputLayout
+          android:layout_width="match_parent"
+          android:layout_height="65dp"
+          android:layout_marginLeft="40dp"
+          android:layout_marginRight="40dp"
+          android:background="#CCFFFFFF"
+          android:gravity="center"
+          app:boxBackgroundMode="none"
+          android:layout_marginBottom="20dp"
+          app:hintTextColor="#1d1b20">
+
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="15dp"
+            android:drawableStart="@drawable/baseline_person_24"
+            android:drawablePadding="10dp"
+            android:fontFamily="@font/montserrat"
+            android:hint="@string/username"
+            android:importantForAutofill="no"
+            android:inputType="textEmailAddress"
+            android:textSize="16sp"
+            android:paddingBottom="12dp"
+            android:textColor="@color/material_on_background_emphasis_high_type"
+            android:textStyle="bold" />
+
+      </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+      <LinearLayout
+          android:layout_width="340dp"
+          android:layout_height="180dp"
+          android:layout_gravity="center"
+          android:background="@drawable/borde"
+          android:orientation="vertical"
+          android:paddingBottom="0dp">
+
+        <Button
+            android:id="@+id/button6"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="65dp"
+            android:layout_marginEnd="40dp"
+            android:backgroundTint="#CCFFFFFF"
+            android:fontFamily="@font/montserrat"
+            android:text="Guardar Cambios"
+            android:textColor="@color/material_on_background_emphasis_high_type"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:cornerRadius="15dp"
+            app:iconTint="@color/white"
+            app:strokeColor="@color/white" />
+
+
+      </LinearLayout>
+
+      <Button
+          android:id="@+id/button5"
+          style="?attr/materialButtonOutlinedStyle"
+          android:layout_width="match_parent"
+          android:layout_height="60dp"
+          android:layout_marginStart="40dp"
+          android:layout_marginTop="20dp"
+          android:layout_marginBottom="20dp"
+          android:layout_marginEnd="40dp"
+          android:backgroundTint="#CCFFFFFF"
+          android:fontFamily="@font/montserrat"
+          android:text="@string/sesion"
+          android:textColor="@color/material_on_background_emphasis_high_type"
+          android:textSize="18sp"
+          android:textStyle="bold"
+          app:cornerRadius="15dp"
+          app:iconTint="@color/white"
+          app:strokeColor="@color/white" />
+    </LinearLayout>
+  </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

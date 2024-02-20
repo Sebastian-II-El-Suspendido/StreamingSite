@@ -59,10 +59,10 @@ class PantallaMain : AppCompatActivity() {
     private lateinit var scrollP: ScrollView
     private lateinit var scrollG: LinearLayout
     private lateinit var listita: List<MediaItem>
+    private var passSize: Int = 0
     var jobMovies: Job? = null
     var jobSeries: Job? = null
     private var Language = "en-US"
-    // val title = findViewById<TextView>(R.id.titleView)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,27 +70,22 @@ class PantallaMain : AppCompatActivity() {
         setContentView(binding.root)
         scrollP= binding.scrollView2
         scrollG= binding.recyclercat
+        passSize = intent.getIntExtra("PASS_SIZE",6)
         recyclerView1 = findViewById(R.id.recyclerView1)
         recyclerView2 = findViewById(R.id.recyclerView2)
         recyclerView3 = findViewById(R.id.recyclerView3)
         recyclerView4 = findViewById(R.id.recyclerView4)
         recyclerGenero= findViewById(R.id.recyclerViewCat)
-
+        val user = Firebase.auth.currentUser
+        val photoUrl = user?.photoUrl
+        Glide.with(this)
+            .load(photoUrl)
+            .circleCrop()
+            .into(binding.imagePerfil)
 
         llamadaDatosPeliculas()
         initRecyclerViewPeliculas()
 
-        val storageReference = Firebase.storage.reference
-        val imageReference = storageReference.child("Iconos/volume_0.png")
-
-
-        imageReference.downloadUrl.addOnSuccessListener { uri ->
-            val imageUrl = uri.toString()
-            // Ahora puedes usar Glide para cargar la imagen
-            cargarImagenConGlide(imageUrl)
-        }.addOnFailureListener {
-            // Manejar el caso de que no se pueda obtener la URL
-        }
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -98,28 +93,14 @@ class PantallaMain : AppCompatActivity() {
 
     }
 
-
-    private fun cargarImagenConGlide(imageUrl: String) {
-        val imageView = findViewById<ImageView>(R.id.imagePerfil)
-        Glide.with(this /* context */)
-            .load(imageUrl) // Carga la imagen desde la URL
-            .circleCrop()
-            .into(imageView) // Carga la imagen en el ImageView
-    }
-
-
     override fun onResume() {
         super.onResume()
         val sharedPreferences = getSharedPreferences("UserPreferences", Context.MODE_PRIVATE)
         val currentLanguage = sharedPreferences.getString("selectedLanguage", "en-US")
-
         if (currentLanguage != Language) {
             if (currentLanguage != null) {
                 Language = currentLanguage
             }
-            // Aquí es donde realizarías la llamada a la API con el nuevo idioma.
-            // Esto podría ser simplemente llamar a una función que hace la solicitud de la red y actualiza la UI.
-           // fetchMovies(currentLanguage)
         }
     }
 
@@ -131,15 +112,11 @@ class PantallaMain : AppCompatActivity() {
         lifecycleScope.launch {
             Log.e("aviso","Launching Corrutine")
             try {
-                // Retrofit manejará la llamada asíncrona en el fondo por ti.
                 val response = getRetrofit().create(TMDbApiService::class.java).getListMoviesPopular("1ea435c6f57a9f3833b110a6061d8f93", Language)
-                // response es ahora del tipo Response<MovieResponseList>
                 if (response.isSuccessful) {
-                    // Aquí se accede al cuerpo de la respuesta si la llamada fue exitosa.
-                    val movies = response.body()?.results // Esta línea debería funcionar correctamente.
+                    val movies = response.body()?.results
                     Log.d("API Response", "Movies: $movies")
                     movies?.let {
-                        // Actualizar el dataset del adapter y refrescar el RecyclerView
                         viewAdapter1.MovieList=it
                         viewAdapter1.submitList(it)
                         it.forEach { movie ->
@@ -147,12 +124,10 @@ class PantallaMain : AppCompatActivity() {
                         }
                     }
                 } else {
-                    // Manejar la respuesta no exitosa
                     val errorBody = response.errorBody()?.string()
                     Log.e("API Error", "Código de error: ${response.code()}, Cuerpo del error: $errorBody")
                 }
             } catch (e: Exception) {
-                // Manejar cualquier excepción que pueda ocurrir durante la llamada a la API.
                 Log.e("API Error", "Call failed with error", e)
             }
         }
@@ -230,7 +205,7 @@ class PantallaMain : AppCompatActivity() {
                     var index = 0
                     movies?.let { moviesList ->
                         val numberOfMovies = moviesList.size
-                        while (isActive) { // Utiliza isActive para respetar la cancelación
+                        while (isActive) {
                             if (numberOfMovies > 0) {
                                 val movie = moviesList[index % numberOfMovies]
 
@@ -269,9 +244,9 @@ class PantallaMain : AppCompatActivity() {
                                 }
 
                                 index++
-                                delay(5000) // Espera 5 segundos antes de continuar con el próximo elemento
+                                delay(5000)
                             } else {
-                                delay(5000) // Espera si la lista está vacía
+                                delay(5000)
                             }
                         }
                     }
@@ -304,7 +279,6 @@ class PantallaMain : AppCompatActivity() {
                     val movies = response.body()?.results // Esta línea debería funcionar correctamente.
                     Log.d("API Response", "Movies: $movies")
                     movies?.let {
-                        // Actualizar el dataset del adapter y refrescar el RecyclerView
                         viewAdapter1S.submitList(it)
                         it.forEach { movie ->
                             Log.d("Movie Title", movie.name)
@@ -396,7 +370,6 @@ class PantallaMain : AppCompatActivity() {
                                 val movie = moviesList[index % numberOfMovies]
                                 withContext(Dispatchers.Main) {
                                     Log.v("Serie",movie.name)
-                                    // Asegúrate de actualizar la UI en el hilo principal
                                     val posterImageView: ImageView = findViewById(R.id.imageView2)
                                     val imageUrl = "https://image.tmdb.org/t/p/w500${movie.posterPath}"
                                     posterImageView.load(imageUrl)
@@ -407,7 +380,6 @@ class PantallaMain : AppCompatActivity() {
                                                 val genreNames = genreIds.map { id ->
                                                     ListaGeneros.getGenreNameById(id)
                                                 }
-                                                // Pasar datos de la película a la Activity de detalles
                                                 putExtra("MOVIE_ID", movie.id)
                                                 putExtra("MOVIE_TITLE", movie.name)
                                                 putExtra("MOVIE_POSTER", imageUrl)
@@ -420,7 +392,6 @@ class PantallaMain : AppCompatActivity() {
                                             }
                                         this@PantallaMain.startActivity(intent)
                                     }
-
                                 }
 
                                 index++
@@ -819,7 +790,10 @@ data class MediaItem(
 
         setupSpinner()
         binding.imagePerfil.setOnClickListener {
-            val intent = Intent(this, Perfil::class.java)
+            val intent = Intent(this, Perfil::class.java).apply {
+                putExtra("PASS_SIZE",passSize)
+                Log.v("AQUI ESTA EL TAMAÑAO DE LA CONTRASEÑA =========",passSize.toString())
+            }
             startActivity(intent)
         }
         binding.play.setOnClickListener {

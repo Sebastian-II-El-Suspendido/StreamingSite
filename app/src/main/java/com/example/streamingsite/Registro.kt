@@ -2,6 +2,7 @@ package com.example.streamingsite
 
 import android.content.ContentValues.TAG
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,56 +14,58 @@ import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.auth.UserProfileChangeRequest
-import com.google.firebase.auth.auth
-import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.storage
+import kotlin.random.Random
 
 class Registro : AppCompatActivity() {
     private lateinit var binding: ActivityRegistroBinding
     private lateinit var auth: FirebaseAuth
+    private lateinit var imageReference: StorageReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegistroBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val numeroAleatorio = Random.nextInt(0, 25)
         auth = FirebaseAuth.getInstance()
-
-
-        val storageReference = Firebase.storage.reference.child("Iconos/volume_0.png")
-
-        storageReference.downloadUrl.addOnSuccessListener { uri ->
-            val defaultImageUrl = uri.toString()
-            // Procede a establecer esta URL como la imagen de perfil del usuario
-            updateUserProfile(defaultImageUrl)
-        }.addOnFailureListener {
-            // Manejar cualquier error aquí, como un fallback o mostrar un error
-        }
-
-
-
-
+        val volumeIcons = Array(24) { index -> "Iconos/volume_$index.png" }
+        val storageReference = Firebase.storage.reference
+        imageReference = storageReference.child(volumeIcons[numeroAleatorio])
 
 
         auth = FirebaseAuth.getInstance()
         binding.btnLogin.setOnClickListener {
             val email = binding.editTextEmail.text.toString().trim()
             val password = binding.editTextPassword.text.toString().trim()
-            val confirmPassword = binding.editTextConfirmPassword.text.toString().trim() // Asegúrate de tener este campo en tu UI
+            val confirmPassword = binding.editTextConfirmPassword.text.toString()
+                .trim() // Asegúrate de tener este campo en tu UI
 
             // Primero, valida el correo
             if (!validarCorreo(email)) {
-                Toast.makeText(this, "Por favor ingrese un correo válido.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Por favor ingrese un correo válido.", Toast.LENGTH_SHORT)
+                    .show()
                 return@setOnClickListener
             }
             // Luego, valida la contraseña
             if (!validarContrasena(password, confirmPassword, this)) {
                 // Aquí deberías informar al usuario específicamente qué validación de contraseña falló
                 // Por simplicidad, mostramos un mensaje genérico
-                Toast.makeText(this, "La contraseña no cumple con los requisitos.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    "La contraseña no cumple con los requisitos.",
+                    Toast.LENGTH_SHORT
+                ).show()
                 return@setOnClickListener
             }
 
             // Si ambas validaciones son exitosas, procede con el registro
+            val intent = Intent(this, Perfil::class.java).apply {
+                putExtra("PASS_SIZE", password.length)
+        }
             registerUser(email, password)
+            Toast.makeText(this, "Registro exitoso.", Toast.LENGTH_SHORT).show()
+            startActivity(intent)
+
         }
     }
 
@@ -71,39 +74,41 @@ class Registro : AppCompatActivity() {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this@Registro) { task ->
                 if (task.isSuccessful) {
-                    // Registration success
-                    Toast.makeText(this, "Registro exitoso.", Toast.LENGTH_SHORT).show()
-                    // Navigate to the next screen or finish activity
+                    // Usuario registrado exitosamente
+
+                    // Extraer el nombre del usuario a partir del correo electrónico
+                    val displayName = email.substringBefore("@")
+                    // Obtener la URL de la imagen predeterminada
+                    imageReference.downloadUrl.addOnSuccessListener { uri ->
+                        val user = auth.currentUser
+                        val profileUpdates = UserProfileChangeRequest.Builder()
+                            .setDisplayName(displayName) // Establecer el nombre del usuario
+                            .setPhotoUri(uri) // Establecer la foto de perfil
+                            .build()
+                        // Actualizar el perfil del usuario con el nombre y la foto de perfil
+                        user?.updateProfile(profileUpdates)?.addOnCompleteListener { updateTask ->
+                            if (updateTask.isSuccessful) {
+                                Log.d("Registro", "Perfil de usuario actualizado con nombre y imagen predeterminada.")
+                                // Aquí puedes continuar con la lógica post-registro, como mostrar un mensaje o navegar a otra Activity
+                            }
+                        }
+                    }.addOnFailureListener {
+                        // Manejar el caso de que no se pueda obtener la URL de la imagen predeterminada
+                        Log.e("Registro", "No se pudo obtener la URL de la imagen predeterminada.", it)
+                    }
                 } else {
+                    // Manejo de errores de registro
                     if (task.exception is FirebaseAuthUserCollisionException) {
                         Toast.makeText(this, "El correo electrónico ya está registrado.", Toast.LENGTH_SHORT).show()
                     } else {
-                        // Otro tipo de error de registro
                         Toast.makeText(this, "Registro fallido: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
-
-
-
     }
 
-    private fun updateUserProfile(imageUrl: String) {
-        val user = Firebase.auth.currentUser
-        val profileUpdates = UserProfileChangeRequest.Builder()
-            .setPhotoUri(Uri.parse(imageUrl))
-            .build()
 
-        user?.updateProfile(profileUpdates)?.addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                // La imagen de perfil ha sido establecida exitosamente
-                Log.d(TAG, "Imagen de perfil por defecto establecida.")
-            } else {
-                // Manejar el fallo en la actualización del perfil
-                Log.d(TAG, "Error al establecer la imagen de perfil por defecto.")
-            }
-        }
-    }
+
 
     fun validarCorreo(email: String):Boolean=Patterns.EMAIL_ADDRESS.matcher(email).matches()
 

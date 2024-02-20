@@ -92,7 +92,9 @@ class Login : AppCompatActivity() {
                     }
                 } else {
                     Log.d(TAG, "Autenticación del usuario correcta.")
-                    val intent = Intent(this, PantallaMain::class.java)
+                    val intent = Intent(this, PantallaMain::class.java).apply {
+                        putExtra("PASS_SIZE", password.length)
+                    }
                     startActivity(intent)
                 }
             }

@@ -27,7 +27,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/textViewUser"
                     style="@style/MyTextViewStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -38,13 +38,17 @@
 
             </LinearLayout>
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/imageView"
+            <ImageButton
+                android:id="@+id/imagePerfil"
                 android:layout_width="150dp"
-                android:layout_height="140dp"
-                android:layout_marginTop="30dp"
-                android:src="@drawable/perfilicon"
-                app:shapeAppearanceOverlay="@style/Circulito" />
+                android:layout_height="150dp"
+                android:contentDescription="@string/desc"
+                android:layout_marginBottom="15dp"
+                android:padding="3dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="@drawable/rounded_button"
+                tools:ignore="DuplicateSpeakableTextCheck" />
             <TextView
                 android:id="@+id/textView4"
                 style="@style/MyTextViewStyle"
@@ -56,13 +60,32 @@
                 android:text="@string/mail" />
 
             <TextView
+                android:id="@+id/textViewEmail"
+                style="@style/MyTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/mail" />
+
+
+            <TextView
                 android:id="@+id/textView5"
                 style="@style/MyTextViewStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/password" />
+            <TextView
+                android:id="@+id/textViewPass"
+                style="@style/MyTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:layout_marginBottom="30dp"
+                android:textSize="20sp"
                 android:text="@string/password" />
 
             <LinearLayout
