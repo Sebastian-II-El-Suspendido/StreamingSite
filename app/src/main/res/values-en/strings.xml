@@ -15,9 +15,9 @@
     <string name="cate">Genres</string>
     <string name="apar0">Popular</string>
     <string name="apar1">Explore</string>
-    <string name="apar2">Latests releases</string>
-    <string name="apar3">Originals</string>
-    <string name="apar4">Recomendations</string>
+    <string name="apar2">Top rated</string>
+    <string name="apar3">Nitflex Originals</string>
+    <string name="apar4">Estrenos</string>
     <string name="user">User Name</string>
     <string name="changepass">Change Password</string>
     <string name="sinopsis">Synopsis:</string>

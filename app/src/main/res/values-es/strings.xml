@@ -15,8 +15,8 @@
     <string name="cate">Categorías</string>
     <string name="apar0">Popular</string>
     <string name="apar1">Explorar</string>
-    <string name="apar2">Últimas novedades</string>
-    <string name="apar3">Originales</string>
+    <string name="apar2">Mejor valoradas</string>
+    <string name="apar3">Originales de Nitflex</string>
     <string name="apar4">Recomendaciones</string>
     <string name="user">Nombre Usuario</string>
     <string name="changepass">Cambiar contraseña</string>
@@ -28,5 +28,5 @@
     <string name="mail">Correo Usuario</string>
     <string name="idioma">Cambiar idioma</string>
     <string name="sesion">Cerrar sesión</string>
-    <string name="edit">Editar perfilEditar perfil</string>
+    <string name="edit">Editar perfil</string>
 </resources>

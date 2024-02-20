@@ -6,7 +6,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -67,8 +66,6 @@ class RecyclerAdapter(var MovieList:List<MovieDataClass>, val context: Context) 
  */
 
 
-
-
 class RecyclerAdapter(val context: Context, var MovieList:List<MovieDataClass>) :
     ListAdapter<MovieDataClass, RecyclerAdapter.RecyclerViewHolder>(DIFF_CALLBACK) {
 
@@ -78,7 +75,7 @@ class RecyclerAdapter(val context: Context, var MovieList:List<MovieDataClass>) 
 
         init {
             //  titleView = view.findViewById<TextView>(R.id.titleView)
-            posterImageView = view.findViewById<ShapeableImageView>(R.id.posterView)
+            posterImageView = view.findViewById(R.id.posterView)
 
         }
     }
@@ -109,6 +106,7 @@ class RecyclerAdapter(val context: Context, var MovieList:List<MovieDataClass>) 
                 putExtra("MOVIE_RELEASE_DATE", item.release_date)
                 putExtra("MOVIE_OVERVIEW", item.overview)
                 putExtra("MOVIE_RATE", item.vote_average.toString())
+                Log.v("Paso Datos","Correcto")
                 // Agrega cualquier otro dato que necesites
             }
             context.startActivity(intent)
@@ -127,6 +125,8 @@ class RecyclerAdapter(val context: Context, var MovieList:List<MovieDataClass>) 
         }
     }
 }
+
+
 
 
 

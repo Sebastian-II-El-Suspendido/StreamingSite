@@ -40,6 +40,11 @@
         <item name="cornerSize">55%</item>
     </style>
 
+    <style name="ButtonStyleCustom" parent="Widget.MaterialComponents.Button">
+        <item name="android:background">@drawable/borde</item>
+        <!-- Personaliza otros atributos del botón aquí -->
+    </style>
+
 
     <style name="MyTextViewStyle" parent="Widget.AppCompat.TextView">
         <item name="android:layout_width">wrap_content</item>

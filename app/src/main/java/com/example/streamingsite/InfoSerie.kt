@@ -6,6 +6,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageView
 import android.widget.TextView
 import coil.load
 import com.example.streamingsite.databinding.ActivityInfoSerieBinding
@@ -70,7 +71,15 @@ class InfoSerie : AppCompatActivity() {
             }
         }
 
+        val home = findViewById<ImageView>(R.id.iconologo)
+        home.setOnClickListener{
+            val intent = Intent(this, PantallaMain::class.java)
+            startActivity(intent)
+        }
+
     }
+
+
 
 
     fun openYouTubeSearch(context: Context, movieTitle: String) {

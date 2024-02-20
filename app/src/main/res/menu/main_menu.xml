@@ -3,24 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     >
 
-    <item
-        android:id="@+id/app_bar_search"
-        android:icon="@drawable/icons8_search__1_"
-        app:actionViewClass="android.widget.SearchView"
-        app:showAsAction="ifRoom"
-        android:title="@string/desc"
-
-        />
-
-    <item
-        android:id="@+id/icon_perfl_home"
-        android:icon="@drawable/baseline_person_24"
-        app:showAsAction="ifRoom"
-        android:title="@string/desc"
-
-        />
-
-
 
 
 </menu>

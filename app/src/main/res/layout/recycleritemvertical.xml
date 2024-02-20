@@ -3,12 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:paddingEnd="15dp"
     android:layout_height="wrap_content">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:contentDescription="@string/desc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -17,66 +16,44 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:gravity="center"
             android:orientation="horizontal">
 
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/posterView1"
+                android:layout_width="120dp"
+                android:layout_height="180dp"
+                android:contentDescription="@string/desc"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:shapeAppearanceOverlay="@style/roundedCorner"
+                android:layout_marginEnd="15dp"
+                app:srcCompat="@drawable/volume_1"
+                app:strokeColor="@color/white"
+                app:strokeWidth="3dp" />
 
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/posterView"
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_weight="1"
-                    android:contentDescription="@string/desc"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="0dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:shapeAppearanceOverlay="@style/roundedCorner"
-                    app:srcCompat="@drawable/volume_1"
-                    app:strokeColor="@color/white"
-                    app:strokeWidth="3dp" />
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/posterView2"
+                android:layout_width="120dp"
+                android:layout_height="180dp"
+                android:contentDescription="@string/desc"
+                app:shapeAppearanceOverlay="@style/roundedCorner"
+                android:layout_marginEnd="15dp"
+                app:srcCompat="@drawable/volume_2"
+                app:strokeColor="@color/white"
+                app:strokeWidth="3dp" />
 
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/posterView1"
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:contentDescription="@string/desc"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="0dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/volume_2"
-                    app:strokeColor="@color/white"
-                    app:strokeWidth="3dp" />
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/posterView2"
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:contentDescription="@string/desc"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="0dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.053"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/volume_0"
-                    app:strokeColor="@color/white"
-                    app:strokeWidth="3dp" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/posterView3"
+                android:layout_width="120dp"
+                android:layout_height="180dp"
+                android:contentDescription="@string/desc"
+                app:shapeAppearanceOverlay="@style/roundedCorner"
+                app:srcCompat="@drawable/volume_0"
+                app:strokeColor="@color/white"
+                app:strokeWidth="3dp" />
 
 
         </LinearLayout>
