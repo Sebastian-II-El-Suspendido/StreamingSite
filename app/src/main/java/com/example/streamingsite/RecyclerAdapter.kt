@@ -113,6 +113,8 @@ class RecyclerAdapter(val context: Context, var MovieList:List<MovieDataClass>) 
         }
     }
 
+
+
     companion object {
         private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<MovieDataClass>() {
             override fun areItemsTheSame(oldItem: MovieDataClass, newItem: MovieDataClass): Boolean {

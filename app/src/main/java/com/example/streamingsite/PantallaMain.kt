@@ -24,7 +24,11 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.bumptech.glide.Glide
 import com.example.streamingsite.databinding.ActivityPantallaMainBinding
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
+import com.google.firebase.storage.storage
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.async
@@ -76,11 +80,33 @@ class PantallaMain : AppCompatActivity() {
         llamadaDatosPeliculas()
         initRecyclerViewPeliculas()
 
+        val storageReference = Firebase.storage.reference
+        val imageReference = storageReference.child("Iconos/volume_0.png")
 
+
+        imageReference.downloadUrl.addOnSuccessListener { uri ->
+            val imageUrl = uri.toString()
+            // Ahora puedes usar Glide para cargar la imagen
+            cargarImagenConGlide(imageUrl)
+        }.addOnFailureListener {
+            // Manejar el caso de que no se pueda obtener la URL
+        }
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
+
+
     }
+
+
+    private fun cargarImagenConGlide(imageUrl: String) {
+        val imageView = findViewById<ImageView>(R.id.imagePerfil)
+        Glide.with(this /* context */)
+            .load(imageUrl) // Carga la imagen desde la URL
+            .circleCrop()
+            .into(imageView) // Carga la imagen en el ImageView
+    }
+
 
     override fun onResume() {
         super.onResume()
@@ -294,7 +320,6 @@ class PantallaMain : AppCompatActivity() {
                 Log.e("API Error", "Call failed with error", e)
             }
         }
-
 
         lifecycleScope.launch {
             Log.e("aviso","Launching Corrutine")
@@ -793,7 +818,7 @@ data class MediaItem(
          button2=binding.buttonseries
 
         setupSpinner()
-        binding.imageButton.setOnClickListener {
+        binding.imagePerfil.setOnClickListener {
             val intent = Intent(this, Perfil::class.java)
             startActivity(intent)
         }
@@ -881,41 +906,46 @@ data class MediaItem(
         <item>Romance</item>
                  */
 
-
                 when(position){
                     1->{
                         scrollP.visibility= View.GONE
                         initRecyclerGenero()
                         llamarDatosAccion()
+                        scrollG.visibility= View.VISIBLE
                     }
                     2->{
                         scrollP.visibility= View.GONE
                         initRecyclerGenero()
                         llamarDatosAventuras()
+                        scrollG.visibility= View.VISIBLE
 
                     }
                    3->{
                         scrollP.visibility= View.GONE
                        initRecyclerGenero()
                        llamarDatosSciFi()
+                       scrollG.visibility= View.VISIBLE
 
                     }
                     4->{
                         scrollP.visibility= View.GONE
                         initRecyclerGenero()
                         llamarDatosComedia()
+                        scrollG.visibility= View.VISIBLE
 
                     }
                     5->{
                         scrollP.visibility= View.GONE
                         initRecyclerGenero()
                         llamarDatosFantasia()
+                        scrollG.visibility= View.VISIBLE
 
                     }
                    6->{
                         scrollP.visibility= View.GONE
                        initRecyclerGenero()
                        llamarDatosRomance()
+                       scrollG.visibility= View.VISIBLE
 
                     }
 
@@ -933,8 +963,6 @@ data class MediaItem(
         ArrayAdapter<String>(context, resource, objects) {
         }
     }
-
-
 
     fun updateButtonAppearance(button: Button, isSelected: Boolean) {
         if (isSelected) {
